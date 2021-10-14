@@ -8,14 +8,14 @@ const Cart = (props) => {
     let totalQuantity = 0;
     let total = 0;
     for (const product of cart) {
-        console.log(product)
+        // console.log(product)
         if (!product.quantity) {
             product.quantity = 1;
         }
         total = total + product.price * product.quantity;
         totalQuantity = totalQuantity + product.quantity;
     }
-    console.log(typeof totalQuantity)
+    // console.log(typeof totalQuantity)
 
     //................using reduce 
     // const totalReducer = (previous, product) => previous + product.price;
