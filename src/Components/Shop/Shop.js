@@ -10,25 +10,24 @@ const Shop = () => {
     const [cart, setCart] = useState([])
 
     useEffect(() => {
-        console.log('product API called')
         fetch('./products.JSON')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
-                console.log('products received')
             })
     }, [])
 
     useEffect(() => {
-        console.log('L S Called')
         if (products.length) {
             const savedCart = getStoredCart()
             const storedCart = [];
             for (const key in savedCart) {
-
                 const addedProduct = products.find(pd => pd.key === key)
-                console.log(key, addedProduct)
-                storedCart.push(addedProduct)
+                if (addedProduct) {
+                    const quantity = savedCart[key];
+                    addedProduct.quantity = quantity;
+                    storedCart.push(addedProduct)
+                }
 
             }
             setCart(storedCart)
@@ -37,7 +36,6 @@ const Shop = () => {
 
     const handleAddToCart = (product) => {
         const newCart = [...cart, product]
-        console.log(product)
         setCart(newCart)
         // save to local storage (for now)
         addToDb(product.key)
