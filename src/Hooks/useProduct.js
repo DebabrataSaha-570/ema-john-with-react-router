@@ -8,7 +8,7 @@ const useProducts = () => {
 
     }, []);
     //return necessary things
-    return [products]
+    return [products, setProducts]
 }
 
 export default useProducts;
