@@ -6,6 +6,7 @@ import OrderReview from './Components/OrderReview/OrderReview'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound'
+import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
 
           <Route path="/inventory">
             <Inventory></Inventory>
+          </Route>
+          <Route path="/placeorder">
+            <PlaceOrder></PlaceOrder>
           </Route>
 
           <Route path="*">

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Cart = (props) => {
+    console.log(props.children)
     const { cart } = props;
     // console.log(cart)
     //...............using for of loop 
@@ -35,6 +36,7 @@ const Cart = (props) => {
             <p>Shipping: {shipping}</p>
             <p>Tax: {tax.toFixed(2)}</p>
             <p>Grand Total : {grandTotal.toFixed(2)}</p>
+            {props.children}
         </div>
     );
 };
